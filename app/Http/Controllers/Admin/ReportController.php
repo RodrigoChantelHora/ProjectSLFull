@@ -244,6 +244,14 @@ class ReportController extends Controller
 
         try {
             $result = DB::connection($connectionName)->select($querySelect->query);
+            
+            foreach ($result as &$row) {
+                foreach ($row as $key => $value) {
+                    if (is_string($value)) {
+                        $row->$key = mb_convert_encoding($value, 'UTF-8', 'UTF-8');
+                    }
+                }
+            }
 
             $configMail = DB::table('config_mails')->first();
             $signature = $configMail->signature;

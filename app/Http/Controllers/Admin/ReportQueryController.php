@@ -109,6 +109,13 @@ class ReportQueryController extends Controller
 
         try {
             $result = DB::connection($connectionName)->select($query);
+            foreach ($result as &$row) {
+                foreach ($row as $key => $value) {
+                    if (is_string($value)) {
+                        $row->$key = mb_convert_encoding($value, 'UTF-8', 'UTF-8');
+                    }
+                }
+            }
             return response()->json(['result' => $result]);
         } catch (\Exception $e) {
             return response()->json(['query_error' => 'Erro ao executar a consulta: ' . $e->getMessage()]);

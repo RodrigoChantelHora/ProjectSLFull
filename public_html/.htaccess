@@ -19,8 +19,8 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
 # Definir interpretador PHP para arquivos PHP
 <FilesMatch "\.(php4|php5|php3|php2|php|phtml)$">
     SetHandler application/x-lsphp82
 </FilesMatch>
-
