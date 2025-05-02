@@ -1,1 +1,0 @@
-import{c as a,o as e,w as r,a as s,i as o,q as i}from"./app-DEkwZWrq.js";const p={__name:"AuthenticationCardLogo",setup(n){return(c,t)=>(e(),a(o(i),{href:"/"},{default:r(()=>t[0]||(t[0]=[s("img",{width:"100",src:"/images/kristtaPreto.png",alt:""},null,-1)])),_:1}))}};export{p as _};
